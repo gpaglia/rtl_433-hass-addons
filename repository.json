@@ -1,5 +1,5 @@
 {
-  "name": "rtl_433 Home Assistant add-ons",
-  "url": "https://github.com/pbkhrv/rtl_433-hass-addons",
-  "maintainer": "Peter Bakhirev"
+  "name": "rtl_433 Home Assistant add-ons - custom",
+  "url": "https://github.com/gpaglia/rtl_433-hass-addons",
+  "maintainer": "gpaglia"
 }
