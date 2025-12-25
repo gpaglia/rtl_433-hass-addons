@@ -5,7 +5,7 @@ ARG rtl433GitRevision=25.12
 
 FROM ${BUILD_FROM}
 
-COPY --from=builder rtl_433_mqtt_hass.py .
+COPY rtl_433_mqtt_hass_custom.py .
 COPY run.sh .
 
 RUN \
