@@ -19,6 +19,7 @@
     "discovery_prefix": "homeassistant",
     "discovery_interval": 600,
     "force_update": false,
+    "include_ids": "",
     "log_level": "default"
   },
   "schema": {
@@ -32,6 +33,7 @@
     "discovery_prefix": "str",
     "discovery_interval": "int",
     "force_update": "bool",
+    "include_ids": "str?",
     "log_level": "list(default|quiet|debug)"
   },
   "services": ["mqtt:want"]

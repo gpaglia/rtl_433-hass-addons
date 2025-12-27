@@ -6,6 +6,7 @@ if [ ! -z ${MQTT_HOST+x} ]; then
   RTL_TOPIC="${RTL_TOPIC:-rtl_433/+/events}"
   DISCOVERY_PREFIX="${DISCOVERY_PREFIX:-homeassistant}"
   DISCOVERY_INTERVAL="${DISCOVERY_INTERVAL:-600}"
+  INCLUDE_IDS="${INCLUDE_IDS-}"
   OTHER_ARGS="${OTHER_ARGS-}"
 
   LOG_LEVEL="${LOG_LEVEL-}"
@@ -54,6 +55,11 @@ else
   if [[ $LOG_LEVEL == "debug" ]]; then
     OTHER_ARGS="${OTHER_ARGS} --debug"
   fi
+
+  INCLUDE_IDS=$(bashio::config "include_ids")
+  if [ ! -z $INCLUDE_IDS ]; then
+    OTHER_ARGS="${OTHER_ARGS} -I ${INCLUDE_IDS}"
+  fi
 fi
 
 # Set a default port for when the container is being run directly.
@@ -62,4 +68,5 @@ if [ ! -z ${MQTT_PORT+x} ]; then
 fi
 
 echo "Starting rtl_433_mqtt_hass_custom.py..."
+echo "Command: python3 -u /rtl_433_mqtt_hass_custom.py -H $MQTT_HOST -p $MQTT_PORT -R \"$RTL_TOPIC\" -D \"$DISCOVERY_PREFIX\" -i $DISCOVERY_INTERVAL $OTHER_ARGS"
 python3 -u /rtl_433_mqtt_hass_custom.py -H $MQTT_HOST -p $MQTT_PORT -R "$RTL_TOPIC" -D "$DISCOVERY_PREFIX" -i $DISCOVERY_INTERVAL $OTHER_ARGS
