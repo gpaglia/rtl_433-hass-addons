@@ -57,7 +57,7 @@ else
   fi
 
   INCLUDE_IDS=$(bashio::config "include_ids")
-  if [ ! -z $INCLUDE_IDS ]; then
+  if [ ! -z "${INCLUDE_IDS}" ]; then
     OTHER_ARGS="${OTHER_ARGS} -I ${INCLUDE_IDS}"
   fi
 fi
