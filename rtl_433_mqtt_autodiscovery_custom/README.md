@@ -1,4 +1,4 @@
-# rtl_433 MQTT Auto Discovery Home Assistant Add-on
+# rtl_433 MQTT Auto Discovery Home Assistant Add-on (custom by gp)
 
 ## About
 
@@ -14,6 +14,7 @@ More specifically, this script looks for the following keys in rtl_433's event d
 ```
 alarm
 battery_ok
+closed
 depth_cm
 gust_speed_km_h
 gust_speed_m_s
