@@ -999,6 +999,9 @@ def bridge_event_to_hass(mqttc, topic_prefix, data):
         # no unique device identifier
         logging.warning("No suitable identifier found for model: %s", model)
         return
+    
+    # GP
+    logging.info("Got device id: %s for model: %s", device_id, model)
 
     if args.ids and "id" in data and data.get("id") not in args.ids:
         # not in the safe list
